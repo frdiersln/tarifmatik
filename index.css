@@ -1,0 +1,271 @@
+
+.material_field{
+  width: 89%;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.all_materials{
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.89em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.89em;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.7px);
+    -webkit-backdrop-filter: blur(14.7px);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    z-index: 0;
+}
+
+.all_materials .material{
+    min-width: fit-content;
+    min-height: fit-content;
+    border-radius: 2em;
+    padding: 0.66em;
+    margin: 0.26em;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.all_materials .material:hover{
+  scale: 0.89;
+}
+
+.all_materials .dots{
+  font-size: 1.4em;
+  font-weight: 600;
+  padding-top: 0;
+  padding-bottom: 0.41em;
+  margin-top: 0.26em;
+  margin-left: 0.89em;
+  cursor: default;
+}
+
+.materialSearchContainer{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0.66em;
+}
+
+.materialSearch{
+    position: relative;
+    border: 2px solid #5F8FA4;
+    width: 26vw;
+    min-width: 200px;
+    height: 41px;
+    background: #B1BEC6;
+    border-radius: 50px;
+    padding: 4px 11px 4px 31px;
+    font-size: 13px;
+    color: #555; 
+}
+
+.materialSearch:focus{
+    outline: none;
+}
+
+.searchicon{
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: transparent;
+    border: 3px solid #5F8FA4;
+    left: 10px;
+    top: 14px;
+    border-radius: 100%;
+}
+
+.searchicon:after{
+    content: '';
+    position: absolute;
+    background: #5F8FA4;
+    height: 6px;
+    width: 3px;
+    bottom: -5px;
+    right: -3px;
+    transform: rotate(-45deg);
+}
+
+.icon-holder{
+    width: 14em;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-holder .icon{
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    background: #43b3e7;
+    border-radius: 100%;
+    cursor: default;
+    opacity: 0;
+    transition: 0.4s;
+    padding: 0.41em;
+}
+
+.icon-holder .icon img{
+  width: 2em;
+  height: 2em;
+}
+
+.icon:hover{
+    background: #70c5ed;
+    animation-play-state: paused;
+}
+
+#Manav:after {
+    content: "";
+    font-weight: bold;
+    position: absolute;
+    font-size: 13px;
+    color: #43b3e7;
+    background: transparent;
+    padding: 1px 3px 1px 4px;
+    border-radius: 100%;
+    left: 10px;
+    top: 9px;
+  }
+  
+  #Market:after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 12px;
+    background: transparent;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    top: 9px;
+    left: 11px;
+  }
+  
+  #Market:before {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 8px;
+    background: transparent;
+    left: 13px;
+    top: 11px;
+    z-index: 1;
+  }
+    
+  #Kasap:after {
+    content: "";
+    position: absolute;
+    height: 13px;
+    width: 4px;
+    background: transparent;
+    border-radius: 3px;
+    top: 15px;
+    left: 11px;
+  }
+  
+  #Kasap:before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 8px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background: transparent;
+    top: 12px;
+    left: 9px;
+  }
+
+  input:focus ~ .icon-holder > .icon {
+    animation: ani 2.2s ease-out infinite;
+    cursor: pointer;
+  }
+  @keyframes ani {
+    0% {
+      opacity: 1;
+    }
+    10% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .tooltip {
+    opacity: 0;
+    position: absolute;
+    font-size: 12px;
+    color: white;
+    background: #555;
+    padding: 8px;
+    top: 15px;
+    border-radius: 15%;
+    top: 45px;
+  }
+  .tooltip:after {
+    content: "";
+    position: absolute;
+    background: #555;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    height: 18px;
+    width: 18px;
+    top: -10px;
+    left: 7px;
+  }
+  
+  .icon:hover > .tooltip {
+    animation: ani 0.4s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+
+  .selected_materials{
+    max-width: 89%!important;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.89em;
+    z-index: 0;
+    background-color: transparent;
+}
+
+.selected_materials .selectedMaterial{
+    min-width: fit-content;
+    min-height: fit-content;
+    border-radius: 2em;
+    padding: 0.66em;
+    margin: 0.26em;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.selected_materials .selectedMaterial:hover{
+  scale: 0.89;
+}

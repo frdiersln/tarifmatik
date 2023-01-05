@@ -1,0 +1,69 @@
+.backBtn{
+    text-decoration: none!important;
+    color: white;
+    position: absolute;
+    top: 41px;
+    left: 13.1%;
+}
+
+.backBtn span{
+    position: absolute;
+    left: -26px;
+}
+
+.results-wrapper{
+    width: 89%;
+    height: fit-content;
+    margin-top: 41px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.89em;
+    z-index: 0;
+    text-align: center;
+    color: white;
+}
+
+.result-wrapper{
+    width: 89%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 14% 86%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.7px);
+    -webkit-backdrop-filter: blur(14.7px);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    padding: 1.89em;
+  }
+
+  .result-wrapper .reqMaterials{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .result-wrapper .reqMaterial{
+    min-width: fit-content;
+    min-height: fit-content;
+    margin: 0.22em;
+    border-bottom: solid rgba(255, 255, 255, 0.356) 1px;
+  }
+
+  .result-wrapper .name{
+    position: relative;
+    top: 41%;
+  }
+
+  .result-wrapper .category{
+    position: relative;
+    color: rgba(209, 209, 209, 0.932);
+  }
+
+  .result-wrapper .recipe{
+    margin-top: 1.4%;
+    margin-bottom: 2.6%;
+  }

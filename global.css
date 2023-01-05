@@ -1,0 +1,17 @@
+*{
+    font-family: 'Raleway', sans-serif;
+   }
+   
+   html{
+       width: 100%;
+       height: fit-content;
+       min-height: 100vh;
+       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1920' height='1080' preserveAspectRatio='none' viewBox='0 0 1920 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask3424%26quot%3b)' fill='none'%3e%3crect width='1920' height='1080' x='0' y='0' fill='url(%23SvgjsLinearGradient3425)'%3e%3c/rect%3e%3cpath d='M1920 0L1091.02 0L1920 275.4z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1091.02 0L1920 275.4L1920 404.65999999999997L589.0699999999999 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M589.0699999999999 0L1920 404.65999999999997L1920 683L472.94999999999993 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M472.9499999999998 0L1920 683L1920 740.38L428.3799999999998 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 1080L845.49 1080L0 572.97z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 572.97L845.49 1080L1208.3600000000001 1080L0 271.95000000000005z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 271.95000000000005L1208.3600000000001 1080L1273.2700000000002 1080L0 106.54000000000005z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 106.54000000000008L1273.2700000000002 1080L1510.3400000000001 1080L0 76.20000000000007z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask3424'%3e%3crect width='1920' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='10.94%25' y1='-19.44%25' x2='89.06%25' y2='119.44%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient3425'%3e%3cstop stop-color='rgba(225%2c 64%2c 127%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(0%2c 158%2c 149%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+       background-size: 100% 122%;
+       background-repeat: no-repeat;
+   }
+   
+   body{
+     background: transparent;
+   }
+   
