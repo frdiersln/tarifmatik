@@ -4,7 +4,7 @@ require_once "connection.php";
 session_start();
 
 $materials = array();
-$selectedMaterials = array();
+if(!isset($_SESSION['selectedMaterials'])){$selectedMaterials = array();}
 
 $select_stmt = $db->prepare("SELECT id, isim, kategori FROM malzemeler ORDER BY RAND() LIMIT 14"); //14 tane random malzemeyi materials arrayine at
 $select_stmt->execute();
@@ -75,8 +75,10 @@ else if (isset($_GET['viewsCat'])) { //malzemeler için kategori seçilmiş ise 
                     if ($material['kategori'] == 'Kasap') {$color = 'rgba(247, 60, 60, 0.89)';}
                     elseif ($material['kategori'] == 'Manav') {$color = 'rgba(70, 228, 117, 0.72);';}
                     elseif ($material['kategori'] == 'Market') {$color = 'rgba(39, 108, 211, 0.733)';}
+                    else{$color = 'rgba(66, 66, 66, 0.89)';}
 
                     echo '<form method="POST" >';
+                    if(!isset($selectedMaterials)){$selectedMaterials = array();}
                     $selectedMaterialsStr = implode('-', $selectedMaterials);
                     if(strlen($selectedMaterialsStr) > 0) {
                         echo '<button name="selectMaterial" type="submit" value="' . $selectedMaterialsStr . "-" . $material['isim'] . '"' . 'class="material" id="' . $material['isim'] . '"' . ' style="background-color:' . $color . ';">' . '<a>' . $material['isim'] . '</a></button>';

@@ -36,14 +36,15 @@ $resultIds = array();
         if(!isset($_GET['mats'])){
             header('Location: index.php');
         }else{
+            
             $selectedMaterials = explode("-", $_GET['mats']);
             foreach($selectedMaterials as $material){
-                $select_stmt = $db->prepare("SELECT id FROM malzemeler WHERE isim = :name");
+                $select_stmt = $db->prepare("SELECT id FROM malzemeler WHERE isim = :name");     //GELEN MALZEME İSMİNDEN IDYİ CEK
                 $select_stmt->execute(['name' => $material]);
-                $materialId = $select_stmt->fetch(PDO::FETCH_ASSOC);
+                $materialId = $select_stmt->fetch(PDO::FETCH_ASSOC);                                 
 
                 $select_stmt = $db->prepare("SELECT yemekId FROM yemeklervemalzemeleri WHERE malzemeId = :materialId");
-                $select_stmt->execute(['materialId' => $materialId['id']]);
+                $select_stmt->execute(['materialId' => $materialId['id']]);                     //MALZEME İDSİNE GÖRE BULUNDUGU YEMEKLERİN İDLERİNİ CEK $resultIds'E PUSHLA
                 $resultIdsR = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
                 foreach($resultIdsR as $result) {
                     if(!in_array($result['yemekId'], $resultIds)){
@@ -51,20 +52,25 @@ $resultIds = array();
                     }
                 }
             }
-            $reqMaterials = array();
             foreach($resultIds as $resultId){
-                $select_stmt = $db->prepare("SELECT * FROM yemekler WHERE id = :id");
+                $select_stmt = $db->prepare("SELECT isim, kategori, tarif FROM yemekler WHERE id = :id");    //RESULTIDLERİ KULLANARAK İSİM, KATEGORİ, TARİF ÇEK
                 $select_stmt->execute(['id' => $resultId]);
-                $result = $select_stmt->fetch(PDO::FETCH_ASSOC);
-                $select_stmt = $db->prepare("SELECT malzemeId FROM yemeklervemalzemeleri WHERE yemekId = :id");
+                $result = $select_stmt->fetch(PDO::FETCH_ASSOC);   
+
+                $select_stmt = $db->prepare("SELECT malzemeId FROM yemeklervemalzemeleri WHERE yemekId = :id"); //YEMEK IDSİ İLE TÜM GEREKLİ MALZEMELERİN İDLERİNİ CEK
                 $select_stmt->execute(['id' => $resultId]);
                 $reqMaterialIds = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
-                foreach($reqMaterialIds as $reqMaterialId){
-                    $select_stmt = $db->prepare("SELECT isim FROM malzemeler WHERE id = :id");
+
+                if(!isset($reqMaterials)){$reqMaterials = array();}
+                foreach ($reqMaterialIds as $reqMaterialId) {
+                    $select_stmt = $db->prepare("SELECT isim FROM malzemeler WHERE id = :id"); //GEREKLİ MALZEMELERİN İDLERİNİ KULLANARAK İSİMLERİNİ ÇEK VE $reqMaterials'a pushla
                     $select_stmt->execute(['id' => $reqMaterialId['malzemeId']]);
-                    $reqMaterial = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
-                    array_push($reqMaterials, $reqMaterial);
+                    $reqMaterial = $select_stmt->fetch(PDO::FETCH_ASSOC);
+                    if (!in_array($reqMaterial['isim'], $reqMaterials)) {
+                        array_push($reqMaterials, $reqMaterial['isim']);
+                    }
                 }
+
                 ?>
                 <div class="result-wrapper">
                     <div class="left-wrapper">
@@ -73,11 +79,12 @@ $resultIds = array();
                     </div>
                     <div class="right-wrapper">
                         <div class="recipe"> <?=$result['tarif']?> </div>
-                        <div class="reqMaterials"> <?php foreach($reqMaterials as $reqMaterial){foreach($reqMaterial as $reqMateriall){echo "<div class='reqMaterial'>".$reqMateriall['isim']."</div>";}} ?> </div>
+                        <div class="reqMaterials"> <?php foreach($reqMaterials as $reqMaterial){echo "<div class='reqMaterial'>" . $reqMaterial . "</div>";} ?> </div>
                     </div>
                 </div>
                 <?php
             }
+
         }
         ?>
 
