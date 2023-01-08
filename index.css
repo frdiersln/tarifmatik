@@ -269,3 +269,14 @@
 .selected_materials .selectedMaterial:hover{
   scale: 0.89;
 }
+
+.findFoodBtn-wrapper{
+  margin-top: 4em;
+}
+
+.findFoodBtn-wrapper form{
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}

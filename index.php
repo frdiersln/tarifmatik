@@ -127,7 +127,7 @@ else if (isset($_GET['viewsCat'])) { //malzemeler için kategori seçilmiş ise 
     </div>
     <div class="findFoodBtn-wrapper">
         <form method="POST">
-            <button class="btn btn-outline-primary btn-lg" type="submit" name="foodSearch">Seçili Malzemeleri İçeren Yemekleri Bul</button>
+            <button class="btn btn-outline-light btn-lg" type="submit" name="foodSearch">Seçili Malzemeleri İçeren Yemekleri Bul</button>
         </form>
     </div>
 </body>

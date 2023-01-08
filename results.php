@@ -61,7 +61,7 @@ $resultIds = array();
                 $select_stmt->execute(['id' => $resultId]);
                 $reqMaterialIds = $select_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                if(!isset($reqMaterials)){$reqMaterials = array();}
+                $reqMaterials = array();
                 foreach ($reqMaterialIds as $reqMaterialId) {
                     $select_stmt = $db->prepare("SELECT isim FROM malzemeler WHERE id = :id"); //GEREKLİ MALZEMELERİN İDLERİNİ KULLANARAK İSİMLERİNİ ÇEK VE $reqMaterials'a pushla
                     $select_stmt->execute(['id' => $reqMaterialId['malzemeId']]);
@@ -74,7 +74,7 @@ $resultIds = array();
                 ?>
                 <div class="result-wrapper">
                     <div class="left-wrapper">
-                        <div class="name"> <?=$result['isim']?> </div>
+                        <div class="name"> <?=$result['isim']?> <?=$resultId?> </div>
                         <div class="category"> (<?=$result['kategori']?>) </div>
                     </div>
                     <div class="right-wrapper">
